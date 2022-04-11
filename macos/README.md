@@ -1,10 +1,19 @@
 ## Basics
 
+#### Settings to reconfigure
+
 * Settings > General > Close windows when quitting an app ON
 * Settings > Accessibility > Display > Shake mouse pointer to locate OFF
 * Scrolling speed and mouse speed to desired
 * Settings > Trackpad > Tap to click ON
 * Settings > Mouse > Natural scroll OFF
+
+#### Lock screen Command+L
+
+* Settings > Keyboard > Shortcuts > App Shortcuts > Add
+   * Application: All Applications
+   * Menu Title: Lock Screen # case sensitive lol
+   * Shortcut: set to desired
 
 ## Screen
 
