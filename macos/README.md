@@ -18,6 +18,7 @@
 #### Layout
 
 * Set to British PC to have a semblance of familiarity
+* Keyboard > Shortcuts > Input sources > Unset all options
 
 #### Nuke keyboard settings if it thinks your ISO board is ANSI for whatever reason
 
