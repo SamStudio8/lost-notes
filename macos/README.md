@@ -58,3 +58,11 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
     *  Modifier: None
     *  Action: Send Text \O33OH (\O33OF)
     *  Note: Press ESC to send \O33
+
+#### Get rid of command-d split pane
+
+* Settings > Keyboard > Shortcuts > App Shortcuts > Add
+   * Application: Terminal
+   * Menu Title: Split Pane # case sensitive lol
+   * Shortcut: set to something garbage like shift+ctrl+command+alt+2
+
