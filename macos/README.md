@@ -80,3 +80,11 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
 * Install iTerm
 * Duplicate iTerm (right click > Duplicate)
 * Right click > Get info > [x] Open with Rosetta
+
+## Packages
+
+### Install brew
+
+* Install the xcode command line tools by attempting to do absolutely anything code related on the command line
+* Install brew by following their dodgy instructions to wget a script into your shell
+    * Do not leave it to brew to install the xcode components you need as it will just do nothing for hours
