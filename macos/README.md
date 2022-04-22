@@ -15,6 +15,12 @@
    * Menu Title: Lock Screen # case sensitive lol
    * Shortcut: set to desired
 
+#### Don't clutter the desktop with screenshots
+
+```
+defaults write com.apple.screencapture location /Users/Sam.Nicholls/Pictures/Screenshots
+```
+
 ## Screen
 
 #### Blurry font on non-4k monitor
