@@ -96,3 +96,21 @@ bindkey '\e[F'    end-of-line
 * Install the xcode command line tools by attempting to do absolutely anything code related on the command line
 * Install brew by following their dodgy instructions to wget a script into your shell
     * Do not leave it to brew to install the xcode components you need as it will just do nothing for hours
+
+### x86 brew
+
+* Installing brew the default way does not allow for x86 applications to be installed because why not
+* [Follow these instructions](https://medium.com/mkdir-awesome/how-to-install-x86-64-homebrew-packages-on-apple-m1-macbook-54ba295230f)
+
+```
+cd ~/Downloads
+mkdir homebrew
+curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+sudo mv homebrew /usr/local/homebrew
+```
+
+```
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# for intel x86_64 brew
+alias axbrew='arch -x86_64 /usr/local/homebrew/bin/brew'
+```
