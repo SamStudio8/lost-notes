@@ -65,6 +65,14 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
     *  Action: Send Text \O33OH (\O33OF)
     *  Note: Press ESC to send \O33
 
+
+Alternatively, add the following to `.zshrc`
+
+```
+bindkey '\e[H'    beginning-of-line
+bindkey '\e[F'    end-of-line
+```
+
 #### Get rid of command-d split pane
 
 * Settings > Keyboard > Shortcuts > App Shortcuts > Add
