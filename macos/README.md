@@ -72,3 +72,11 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
    * Menu Title: Split Pane # case sensitive lol
    * Shortcut: set to something garbage like shift+ctrl+command+alt+2
 
+
+## Rosetta
+
+### Get an x86_64 terminal
+
+* Install iTerm
+* Duplicate iTerm (right click > Duplicate)
+* Right click > Get info > [x] Open with Rosetta
