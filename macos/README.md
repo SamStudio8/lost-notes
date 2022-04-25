@@ -114,3 +114,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # for intel x86_64 brew
 alias axbrew='arch -x86_64 /usr/local/homebrew/bin/brew'
 ```
+
+### LibreSSL and OpenSSL nonsense
+
+```
+export CPPFLAGS="-I$(axbrew --prefix openssl)/include"; export LDFLAGS="-L$(axbrew --prefix openssl)/lib";
+```
+
+* See [here for more](https://github.com/pyenv/pyenv/wiki/Common-build-problems#error-the-python-ssl-extension-was-not-compiled-missing-the-openssl-lib)
