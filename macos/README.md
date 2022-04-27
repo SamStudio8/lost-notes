@@ -35,6 +35,10 @@ defaults write com.apple.screencapture location /Users/Sam.Nicholls/Pictures/Scr
 * Set to British PC to have a semblance of familiarity
 * Keyboard > Shortcuts > Input sources > Unset all options
 
+#### Rebind Mission Control
+
+* Keyboard > Shortcuts > Mission Control (rebind control to command)
+
 #### Nuke keyboard settings if it thinks your ISO board is ANSI for whatever reason
 
 ```
