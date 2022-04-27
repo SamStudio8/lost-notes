@@ -37,7 +37,11 @@ defaults write com.apple.screencapture location /Users/Sam.Nicholls/Pictures/Scr
 
 #### Rebind Mission Control
 
-* Keyboard > Shortcuts > Mission Control (rebind control to command)
+* Keyboard > Shortcuts > Mission Control (rebind command and arrows to ctrl+alt and arrows)
+
+#### Take screenshots normally
+
+* Keyboard > Shortcuts > Screenshots (rebind to F13 and shift+F13)
 
 #### Nuke keyboard settings if it thinks your ISO board is ANSI for whatever reason
 
