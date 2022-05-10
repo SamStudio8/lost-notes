@@ -35,6 +35,8 @@ defaults write com.apple.screencapture location /Users/Sam.Nicholls/Pictures/Scr
 * Set to British PC to have a semblance of familiarity
 * Keyboard > Shortcuts > Input sources > Unset all options
 * Keyboard > [x] Use F1, F2... as standard keys
+* Keyboard > Text > unset Correct spelling, capitalise words, add full stop
+* Keybaord > Text > set smart quotes to `"` and `'`
 
 #### Rebind Mission Control
 
