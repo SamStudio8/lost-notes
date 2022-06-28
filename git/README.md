@@ -5,7 +5,8 @@
 
 ## Misc
 
-#### Check and fix executables
+#### Executables
 
+    git config -l | grep core.filemode
     git ls-files -s | grep my_bin.py
     git update-index --chmod=+x bin/my_bin.py
