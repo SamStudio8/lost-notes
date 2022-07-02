@@ -38,7 +38,7 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
 ### Constants
 
 Cannot be made mutable (for some reason) and require an explicit type.
-Compiler can [evaluate expressions for const](https://doc.rust-lang.org/reference/const_eval.html) while permits specifiying expressions in a human readable fashion.
+Compiler can [evaluate expressions for const](https://doc.rust-lang.org/reference/const_eval.html) which permits specifiying expressions in a human readable fashion.
 
 ```rust
 const HOOT_MULTIPLIER: i32 = 8;
