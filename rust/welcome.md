@@ -98,7 +98,7 @@ x = 6
 
 ### Variable shadowing
 
-Variables can be shadowed by scope:
+Variables can be shadowed. This is useful for changing the value of a variable during a scope block, or for changing its type (eg. a String to numeric conversion) without specifying a new variable.
 ```rust
 let x = 5;
 let x = "outer hoot";
