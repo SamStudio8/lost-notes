@@ -11,8 +11,11 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
   * Windows debugging support needs the [MS C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 * [Rust by Example](https://doc.rust-lang.org/rust-by-example/index.html) is like THE BOOK but without words
 * `rustc --version`
+* Memory is managed not by running garbage collection (overhead), nor with manual allocation (risking early or double frees, or memory leaks) but instead a set of "ownership" rules ensure that memory is "dropped" (deallocated) when values fall out of scope
+    * This is one of the most fundamental and unique components of Rust and takes a bit of getting used to
+    * Rust will never deep copy your data, so you can safely assume "copying" is inexpensive
 
-## Types
+## Fixed size Data Types
 
 ### Overview
 
@@ -34,15 +37,6 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
 * Two "compound" types
   * tuple
   * array
-
-### Constants
-
-Cannot be made mutable (for some reason) and require an explicit type.
-Compiler can [evaluate expressions for const](https://doc.rust-lang.org/reference/const_eval.html) which permits specifiying expressions in a human readable fashion.
-
-```rust
-const HOOT_MULTIPLIER: i32 = 8;
-```
 
 ### Tuples
 
@@ -105,6 +99,32 @@ let x = "outer hoot";
 {
     let x = "inner hoot";
 }
+```
+
+### Constants
+
+Cannot be made mutable (for some reason) and require an explicit type.
+Compiler can [evaluate expressions for const](https://doc.rust-lang.org/reference/const_eval.html) which permits specifiying expressions in a human readable fashion.
+
+```rust
+const HOOT_MULTIPLIER: i32 = 8;
+```
+
+## Cooler types
+
+### String
+
+* `ptr`, `len` (used memory), `capacity` (allocated memory) stored on the stack
+* contents stored on the heap
+
+#### String literals vs. `String`
+
+String literals can go on the stack because the size is known at compile time. Distinguished from a `String` which goes on the heap as the size is only known at run time. For the same reason, string literals cannot be manipulated but `String` can be mutated.
+
+```rust
+let string_literal = "hoot";
+let heap_string = String::from(string_literal);
+heap_string.push_str("hoot!");
 ```
 
 ## Expressions
@@ -220,3 +240,79 @@ cargo run # build and run
 cargo update # update deps
 cargo doc --open # generate and provide a link to open doc for crate in browser
 ```
+
+## Ownership
+
+* Recall pushing and popping from the stack (often kept in CPU cache) is faster than allocating (finding space) and accessing (following pointers) from the heap
+* Ownership rules cover the book keeping of data on the heap
+
+### The rules of ownership club
+
+* Don't talk about ownership club
+* A value in Rust has an owner
+* A value can only have one owner at a time
+* A value whose owner is out of scope is dropped
+
+### Three memory allocation scenarios
+
+#### Copying (stack only copy)
+
+```rust
+let x = 8;
+let y = x;
+```
+
+* `y` will have its own independent copy of the value `8`
+* These ownership rules do not apply to simple data types that live on the stack (because there is no heap data to manage)
+    * More specifically any type that implements the `Copy` trait will be trivially copied automatically
+    * `Copy` trait is mutually exclusive and cannot be implemented on any type that implements (or has a part that implements) the `Drop` trait (which manages how heap allocations are released)
+* Tuples will `Copy` iff it only contains types that also implment `Copy` 
+
+#### Moving (not quite a shallow copy)
+
+```rust
+let s1 = String::from("hoot");
+let s2 = s1;
+```
+
+* This will copy the `String` structure to another `String` on the stack -- pointing at the same contents on the heap...
+* On the surface this looks like a shallow copy, but it is a move!
+* `s1` becomes an invalidated reference to avoid a double free when both `s1` and `s2` go out of scope!
+* Why? Because the data on the heap can only have one owner at a time
+* Efficient and safe to assume this will never lead to a deep copy of data
+
+#### Cloning (deep copy)
+
+```rust
+let s1 = String::from("hoot");
+let s2 = s1.clone();
+```
+
+* An explicit true copy of both the stack and heap data
+* `s1` and `s2` own their own copy of the heap data respectively, and drop will be called independently as each falls out of scope
+
+## Borrowing and references
+
+* Passing a value to a function will "move" or "copy" using the assignment semantics described in the ownership section 
+    * That is, by default passing a variable to a function that does not return it again means the value is dropped as soon as the called function scope ends!
+* Borrowing allows a function to take a reference to a value, to get around having to return anything you want to keep in scope back to the caller's scope
+    * `&s1` references `s1` and is said to "refer" to the value of s1 but does not have ownership of it
+    * The compiler guarantees that references will never be dangling references and will also point to a valid value (a value cannot go out of scope before any reference to it does)
+    * A value can be referred to by multiple immutable references
+* Like variables, references are immutable by default
+    * The underlying value, the reference and the function signature must be changed to mutable to allow a reference to be used to mutate the value it is referring to 
+    * If a value has been borrowed as mutable, it cannot be borrowed mutably or immutably by any other reference (preventing data races)
+
+```rust
+let mut s = String::from("hoot");
+let r = &mut s;
+more_hoots(r);
+
+fn more_hoots(s: &mut String) {
+    s.push_str("hoot");
+}
+```
+
+* Although scope blocks can be used to break apart usage of mutable references, a reference scope terminates at the last time the reference is used
+    * If you create a mutable reference, use it, and create another (and never refer to the former), this will compile OK as the usage scopes do not overlap
+    * The compiler uses NLL (non-lexical lifetimes) to figure this out
