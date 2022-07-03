@@ -46,11 +46,37 @@ let number_or_not: Option<i32> = None; // type is explicit as compiler cannot in
 ## Match construct
 
 * Compare a value against a series of value patterns, and execute code based on the matched pattern
-* The compiler confirms all possible cases are handled
 * Unlike an if which requires a boolean, the condition expression can return any type
 * `match` is broken into "arms"
    * An arm is made up of a pattern, and the expression that is executed for that pattern (separated by `=>`) 
    * The matched expression is the return value of the `match` expression
+* Patterns can bind to values, and be used to extract values from enums
+   * Useful for `Option<T>`
+* The first matching arm is returned
+* Matching must be exhaustive
+   * The compiler will ensure all possible cases are handled
+* An arbitrary variable name will act as a catch-all
+   * `_` is a special catch-all pattern that instructs the compiler to match and throw away the value
+   * If you want nothing to happen for a pattern, you can use the unit tuple `()`
 
+```rust
+fn plus_one(x: Option<i32>) -> Option<i32> {
+   match x {
+      None => None,
+      Some(i) => Some(i + 1),
+   }
+}
 ```
-enum 
+
+```rust {
+match y {
+   ...
+   something => ()
+```
+
+```rust
+match z {
+   ...
+   _ => ()
+}
+```
