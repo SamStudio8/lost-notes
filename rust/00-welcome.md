@@ -93,6 +93,9 @@ let my_zeroed_array = [0; 10];
 ```
 
 ## Variables
+
+* Variable assignment is a special case of pattern matching! `let PATTERN = EXPRESSION;`
+
 ### Immutable by default
 
 Need to `let mut` if you plan to change the value of `x`:
