@@ -5,7 +5,7 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
 ## Rust
 
 * Rust is about empowerment
-* Rust aims for memory safety
+* Rust aims for memory safety and fearless concurrency
 * The unofficial mascot of Rust is a crab, their name is Ferris and [there is a gallery for cute art of them](https://rustacean.net/)
 * I installed it on both Windows and Linux with `rustup`
   * [Instructions for installing Rust and getting it working with VS Code](https://code.visualstudio.com/docs/languages/rust)
