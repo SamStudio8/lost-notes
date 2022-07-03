@@ -235,6 +235,10 @@ println!("Number is {}", number);
 println!("Debug print is {:?}", my_tuple);
 ```
 
+### Debug macro
+
+* `dbg!` macro takes ownership of an expression, prints the location and value of the macro and returns the value of the expression
+
 ### Iterate a string as bytes
 
 ```rust
