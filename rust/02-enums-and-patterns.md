@@ -30,7 +30,7 @@ m.call();
 
 ## Useful std library enums
 
-### Option
+### Option<T>
 
-* Used for the commons scenario where a value is something or nothing
-* Particularly useful as Rust has no null value
+* Encodes the concept of having something or nothing
+* Rust has no null value, so this enum is so useful it is included in the prelude
