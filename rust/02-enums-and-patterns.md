@@ -83,7 +83,7 @@ match z {
 }
 ```
 
-* `if let` offers a shorthand to cover the `z` case
+* `if let` offers a shorthand to cover scenarios where you want `match` to do something for one pattern and ignore all other patterns
 
 ```rust
 if let Some(val) = z {
