@@ -82,3 +82,11 @@ match z {
    _ => (),
 }
 ```
+
+* `if let` offers a shorthand to cover the `z` case
+
+```rust
+if let Some(val) = z {
+   println!("z is {}", val);
+}
+```
