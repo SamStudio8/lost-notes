@@ -42,3 +42,15 @@ m.call();
 let string_or_not = Some("hoot");      // type is Option<&str>
 let number_or_not: Option<i32> = None; // type is explicit as compiler cannot infer a type from Option::None
 ```
+
+## Match construct
+
+* Compare a value against a series of value patterns, and execute code based on the matched pattern
+* The compiler confirms all possible cases are handled
+* Unlike an if which requires a boolean, the condition expression can return any type
+* `match` is broken into "arms"
+   * An arm is made up of a pattern, and the expression that is executed for that pattern (separated by `=>`) 
+   * The matched expression is the return value of the `match` expression
+
+```
+enum 
