@@ -30,7 +30,12 @@ m.call();
 
 ## Useful std library enums
 
-### Option<T>
+### Option
 
 * Encodes the concept of having something or nothing
-* Rust has no null value, so this enum is so useful it is included in the prelude
+* Rust has no null value, so this enum (and its variants `Some<T>` and `None`) are so useful they are included in the prelude
+* `<T>` is the generic type parameter and effectively means `Some<T>` can hold a piece of data of any type
+
+```rust
+let number_or_not: Option<i32> = None;
+```
