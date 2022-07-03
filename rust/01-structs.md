@@ -77,3 +77,7 @@ let origin = Point(0, 0);
 struct MyUnitLikeStruct;
 let thing = MyUnitLikeStruct;
 ```
+
+## Printing
+
+* `{:?}` requires `Debug` trait, which can be derived automatically by adding the "outer attribute" `#[derive(Debug)]` to your struct
