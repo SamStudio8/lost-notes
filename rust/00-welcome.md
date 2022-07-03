@@ -16,6 +16,7 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
     * This is one of the most fundamental and unique components of Rust and takes a bit of getting used to
     * Rust will never deep copy your data without explicit permission, so you can safely assume "copying" is inexpensive
 * There is no null type (but `Option::None` is used for explicitly representing the absence of something)
+* `match`ing an enum, binding variables to the data inside the enum, and executing an expression is an incredible common Rust idiom
 
 ## Forget me not
 
