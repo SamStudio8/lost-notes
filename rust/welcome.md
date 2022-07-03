@@ -14,7 +14,7 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
 * `rustc --version`
 * Memory is managed not by running garbage collection (overhead), nor with manual allocation (risking early or double frees, or memory leaks) but instead a set of "ownership" rules ensure that memory is "dropped" (deallocated) when values fall out of scope
     * This is one of the most fundamental and unique components of Rust and takes a bit of getting used to
-    * Rust will never deep copy your data, so you can safely assume "copying" is inexpensive
+    * Rust will never deep copy your data without explicit permission, so you can safely assume "copying" is inexpensive
 
 ## Fixed size Data Types
 
