@@ -28,4 +28,9 @@ let m = Message::Write(String::from("hoot"));
 m.call();
 ```
 
-## Option
+## Useful std library enums
+
+### Option
+
+* Used for the commons scenario where a value is something or nothing
+* Particularly useful as Rust has no null value
