@@ -61,7 +61,9 @@ let hoot2 = Hooter {
 
 * Methods are functions defined within the context of a struct (or enum, or trait)
 * First parameter must be `self` which represents the instance the method has been called on
-* For structs, defined in an `impl` (implementation block)
+    * Functions without self can be defined (eg. for constructors) but are not referred to as methods, called with `::` syntax (`namespace::associated_function`)
+* For structs, defined in an `impl` (implementation block), these are called "associated functions"
+    * structs are allowed to have multiple implementation blocks
 * Methods called on the instance with "method syntax" (dot)
     * Rust does not distinguish between calling a method on an instance or a reference (ie. there is no `.` / `->` confusion)
     * Rust acheives this with "automatic referencing and deferencing", adding `&`, `&mut` or `*`; which works because all methods know to receive `&self`
