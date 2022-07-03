@@ -77,6 +77,9 @@ impl Hooter {
     fn distance_in_time(&self, time: u32) -> u32 {
         self.speed * time
     }
+    fn training_montage(&mut self) {
+        self.speed += 1
+    }
 }
 ```
 
