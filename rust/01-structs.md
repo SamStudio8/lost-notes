@@ -81,3 +81,4 @@ let thing = MyUnitLikeStruct;
 ## Printing
 
 * `{:?}` requires `Debug` trait, which can be derived automatically by adding the "outer attribute" `#[derive(Debug)]` to your struct
+  * [Docs for other derivable traits](https://doc.rust-lang.org/book/appendix-03-derivable-traits.html)
