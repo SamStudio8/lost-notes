@@ -55,9 +55,7 @@ let number_or_not: Option<i32> = None; // type is explicit as compiler cannot in
 * The first matching arm is returned
 * Matching must be exhaustive
    * The compiler will ensure all possible cases are handled
-* An arbitrary variable name will act as a catch-all
-   * `_` is a special catch-all pattern that instructs the compiler to match and throw away the value
-   * If you want nothing to happen for a pattern, you can use the unit tuple `()`
+
 
 ```rust
 fn plus_one(x: Option<i32>) -> Option<i32> {
@@ -67,6 +65,10 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
    }
 }
 ```
+
+* An arbitrary variable name will act as a catch-all
+   * `_` is a special catch-all pattern that instructs the compiler to match and throw away the value
+   * If you want nothing to happen for a pattern, you can use the unit tuple `()`
 
 ```rust {
 match y {
