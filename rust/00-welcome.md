@@ -21,7 +21,7 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
 * `let x = ...` not `x = ...`
 * `;` ends a statement
 * immutable borrow: `do_something(&x)`; mutable borrow: `do_something(&mut x)`
-* `fn my_func(param: type)`
+* `fn my_func(param: type) { ... }`
 * `my_func(&self, ...` not `my_func(self, ...`
 
 ## Fixed size Data Types
