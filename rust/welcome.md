@@ -5,6 +5,7 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
 ## Rust
 
 * Rust is about empowerment
+* Rust aims for memory safety
 * The unofficial mascot of Rust is a crab, their name is Ferris and [there is a gallery for cute art of them](https://rustacean.net/)
 * I installed it on both Windows and Linux with `rustup`
   * [Instructions for installing Rust and getting it working with VS Code](https://code.visualstudio.com/docs/languages/rust)
@@ -126,6 +127,7 @@ let string_literal = "hoot";
 let heap_string = String::from(string_literal);
 heap_string.push_str("hoot!");
 ```
+String literals are actually slices (specifically `&str`, a type of reference) that point to a specific point of the compiled binary!
 
 ## Expressions
 
@@ -231,6 +233,14 @@ println!("Number is {}", number);
 println!("Pretty print is {:?}", my_tuple);
 ```
 
+### Iterate a string as bytes
+
+```rust
+let s = String::from("hoot");
+let bytes = s.as_bytes();
+for (i, &item) in bytes.iter().enumerate() { ... }
+```
+
 ### Cargo
 
 ```
@@ -316,3 +326,29 @@ fn more_hoots(s: &mut String) {
 * Although scope blocks can be used to break apart usage of mutable references, a reference scope terminates at the last time the reference is used
     * If you create a mutable reference, use it, and create another (and never refer to the former), this will compile OK as the usage scopes do not overlap
     * The compiler uses NLL (non-lexical lifetimes) to figure this out
+
+## Slices
+
+* A type, referencing (ie. no ownership) a contiguous sequence of elements in a collection
+* A nice home cooked slice just like your Python used to make, `end_index` is one-off just like back home
+* Form is `[i..j]`
+    * If `i=0` you can use `[..j]`
+    * If `j=s.len()` you can use `[i..]`
+    * Yes, a whole slice is `[..]`
+* For `String` the slice type is `&str`, for an array of i32 numbers the slice type is `&[i32]`
+
+```rust
+let s = String::from("hello world!");
+let hello = &s[..5];
+```
+
+* Note, if slicing a String with multibyte characters, slices must occur at character boundaries
+* Slices help keep the semantics of using a collection valid by applying the rules of borrowing to subsequences of the collection
+    * eg. You cannot take a slice of a String, clear the String and try and use the slice later -- the reference to the slice is invalid when the source is destroyed
+* Functions can take a slice (eg. `&str`) instead of a reference to the underlying type (eg. `&String`) without any loss of function
+    * `String` implements the `Deref` trait such that "deref coercion" can convert `&String` to `&str`
+        * Reduces the amount of explicit referencing and deferencing needed
+
+```rust
+fn my_func(s: &str) -> &str { ... }
+```
