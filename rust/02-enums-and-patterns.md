@@ -37,5 +37,6 @@ m.call();
 * `<T>` is the generic type parameter and effectively means `Some<T>` can hold a piece of data of any type
 
 ```rust
-let number_or_not: Option<i32> = None;
+let string_or_not = Some("hoot");      // type is Option(&str)
+let number_or_not: Option<i32> = None; // type is explicit as compiler cannot infer a type from Option::None
 ```
