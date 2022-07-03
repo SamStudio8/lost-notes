@@ -223,6 +223,7 @@ Note the syntax is specific -- a leading single quote `'`, a name and `:` -- thi
 ## Conventions
 
 * The top level scope is called the "prelude" and includes the most useful symbols, macros (eg. `println!`) and enums (`Option`)
+* Surrounding braces are not used in a `match` if the matching expression is short
 
 ### Naming stuff
 
