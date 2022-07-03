@@ -16,6 +16,12 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
     * This is one of the most fundamental and unique components of Rust and takes a bit of getting used to
     * Rust will never deep copy your data without explicit permission, so you can safely assume "copying" is inexpensive
 
+## Forget me not
+
+* `let x = ...` not `x = ...`
+* `;` ends a statement
+* `my_func(&self, ...` not `my_func(self, ...`
+
 ## Fixed size Data Types
 
 ### Overview
