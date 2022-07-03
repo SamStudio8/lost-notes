@@ -83,10 +83,17 @@ match z {
 }
 ```
 
-* `if let` offers a shorthand to cover scenarios where you want `match` to do something for one pattern and ignore all other patterns
+## if let
+
+* `if let` offers a shorthand to cover scenarios where you want `match` to do something for one pattern (if) and ignore all other patterns (optional else)
+* `if let` has a pattern and expression but separated by an equals sign
+* No exhaustive checking
 
 ```rust
 if let Some(val) = z {
    println!("z is {}", val);
+}
+else {
+   println!("z was a bad egg");
 }
 ```
