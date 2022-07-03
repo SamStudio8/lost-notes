@@ -225,12 +225,14 @@ let variable_with_snakecase = "hoot";
 ### Printing stuff
 
 * `println!` is a macro
+* `{}` requires `Display` trait
+* `{:?}` requires `Debug` trait
 
 ```rust
 println!("Hello world!");
 println!("Number is {number}");
 println!("Number is {}", number);
-println!("Pretty print is {:?}", my_tuple);
+println!("Debug print is {:?}", my_tuple);
 ```
 
 ### Iterate a string as bytes
