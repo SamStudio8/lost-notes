@@ -45,11 +45,13 @@ for i in &mut v {
 }
 ```
 
+* `v.contains(x)` return `bool`
+
 
 ## `String` ..."String" (str)
 
 * https://doc.rust-lang.org/std/string/struct.String.html
-* Defined in the standard library, not to be confused with `&str` (String slices) defined in the Rust core (e.g. reference string slices for string literals) ...or indeed with other string types (OsString, OsStr, CString, CStr) 
+* Defined in the standard library, not to be confused with the primitive `str` (string slice) type defined in the Rust core (e.g. reference string slices for string literals) ...or indeed with other string types (OsString, OsStr, CString, CStr) 
 * Triumvirate of complexity because Rust likes errors, strings are hard, and UTF-8
   * [Why is capitalizing the first letter of a string so convoluted in Rust?
 ](https://stackoverflow.com/questions/38406793/why-is-capitalizing-the-first-letter-of-a-string-so-convoluted-in-rust)
@@ -116,6 +118,10 @@ s.chars().count()
 
 * `s.pop()` removes last **char** from `s` and returns `Option<char>`
 * `s.remove(idx)` removes char starting at byte `idx` from s and returns `char` (can panic)
+* `s.starts_with(&str)` returns `bool`
+* `s.trim()` returns `&str` with leading and trailing whitespace removed (also `trim_start`, `trim_end`)
+* `s.to_lowercase()` returns new `String` (as UTF-8 chars can expand or contract with case changes!)
+* `s.split_whitespace()` returns iterator with string slices
 
 ## `HashMap<K,V>` "Hash map" (dict)
 
