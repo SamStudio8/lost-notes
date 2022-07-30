@@ -26,6 +26,7 @@ Here are some things I found out from [THE BOOK](https://doc.rust-lang.org/book/
 * `fn my_func(param: type) { ... }`
 * `my_func(&self, ...` not `my_func(self, ...`
 * `// i am a comment`
+* `true` not `True`
 
 ## Fixed size Data Types
 
