@@ -114,7 +114,7 @@ s.chars().count()
 * Types with `Copy` trait are copied into the map
 * Owned types (eg. `String`) are moved into the map, map takes ownership
 * Can insert references into map (they won't be moved) but needs to be valid so long as the map is valid
-* Uses `SipHash` by default: less performant but is more robust to hash attacks
+* Uses `SipHash` by default (same as Py>=3.4): less performant but is more robust to hash attacks
 
 ```rust
 // make map
