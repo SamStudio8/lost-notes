@@ -45,6 +45,7 @@ for i in &mut v {
 }
 ```
 
+* `v.sort()` in place sort
 * `v.contains(x)` return `bool`
 
 
