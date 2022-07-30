@@ -100,6 +100,12 @@ for c in s.bytes() {
 ```
 
 ```rust
+// get char n if you really have to
+s.chars().nth(n);
+// O(N) perf
+```
+
+```rust
 // string length
 s.chars().count()
 // O(N) perf as string must be walked, still doesn't count graphemes
