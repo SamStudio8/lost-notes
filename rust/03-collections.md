@@ -45,14 +45,17 @@ for i in &mut v {
 }
 ```
 
+
 ## `String` ..."String" (str)
 
+* https://doc.rust-lang.org/std/string/struct.String.html
 * Defined in the standard library, not to be confused with `&str` (String slices) defined in the Rust core (e.g. reference string slices for string literals) ...or indeed with other string types (OsString, OsStr, CString, CStr) 
 * Triumvirate of complexity because Rust likes errors, strings are hard, and UTF-8
   * [Why is capitalizing the first letter of a string so convoluted in Rust?
 ](https://stackoverflow.com/questions/38406793/why-is-capitalizing-the-first-letter-of-a-string-so-convoluted-in-rust)
 * Strings are implemented as `Vec<u8>`
 * Do not support indexing by integer (specifically, `Index<{integer}>` is not implemented on `String`!)
+* `s.len()` counts bytes not characters, use `s.chars().count()`
 
 ```rust
 // making strings
@@ -110,6 +113,9 @@ s.chars().nth(n);
 s.chars().count()
 // O(N) perf as string must be walked, still doesn't count graphemes
 ```
+
+* `s.pop()` removes last **char** from `s` and returns `Option<char>`
+* `s.remove(idx)` removes char starting at byte `idx` from s and returns `char` (can panic)
 
 ## `HashMap<K,V>` "Hash map" (dict)
 
